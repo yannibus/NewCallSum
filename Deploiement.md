@@ -18,7 +18,9 @@ La première étape consiste à télécharger une copie du projet dans votre env
    Terminal > Nouveau terminal
   3.	Sur la page du dépôt GitHub, cliquez sur le bouton vert <> Code et copiez l’URL HTTPS.
 	4.	Dans le terminal de Code Builder, lancez la commande :
-   git clone https://github.com/VOTRE_NOM/VOTRE_REPO.git
+ 
+   git clone https://github.com/yannibus/NewCallSum
+ 
   👉 Un nouveau dossier contenant tous les fichiers du projet apparaîtra dans l’explorateur de fichiers de Code Builder.
 
 ⸻
