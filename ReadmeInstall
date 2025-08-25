@@ -4,6 +4,7 @@ Ce projet étend les capacités natives du résumé d'appel de Salesforce en off
 Procédure d'installation
 Prérequis
 ECI : Avant de déployer ce package, assurez-vous d'avoir implémenté Einstein Conversation Insights (ECI).
+Agentforce (AI) : Einstein Generative AI doit avoir été déployé
 
 Créer des Données de Test : Avoir quelques enregistrements Voice Call afin de pouvoir tester le composant.
 
