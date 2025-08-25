@@ -1,0 +1,20 @@
+Package de Résumé d'Appel Avancé pour Einstein Conversation Insights
+Ce projet étend les capacités natives du résumé d'appel de Salesforce en offrant un contrôle total sur le prompt, un grounding personnalisable via Flow, et la génération de résumés multilingues.
+
+Procédure d'installation
+Prérequis
+ECI : Avant de déployer ce package, assurez-vous d'avoir implémenté Einstein Conversation Insights (ECI).
+
+Créer des Données de Test : Avoir quelques enregistrements Voice Call afin de pouvoir tester le composant.
+
+Déploiement
+Cloner le Dépôt : Clonez ce dépôt sur votre machine locale ou dans votre environnement Code Builder.
+
+Autoriser une Organisation : Connectez votre projet à votre organisation Salesforce cible en utilisant la commande SFDX: Authorize an Org.
+
+Déployer les Composants : Faites un clic droit sur le dossier force-app et sélectionnez SFDX: Deploy Source to Org.
+
+Opérations Post-Installation
+Connecter le Flow au Prompt Template : Le package ne gère pas toujours cette association. Modifiez le Prompt Template NewSumFlex et assurez-vous que le Flow NewSum_Grounding_Flow_With_Transcript est bien sélectionné comme ressource.
+
+Déployer le LWC : Ouvrez une page d'enregistrement Voice Call, allez dans "Modifier la page" pour lancer l'App Builder, puis faites glisser le composant voiceCallSummarizer sur la mise en page. Enregistrez et activez.
