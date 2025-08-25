@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Générateur de Résumé" icon-name="standard:einstein">
+        <div class="slds-p-around_medium">
+            <!-- Affiche le spinner pendant le chargement -->
+            <template if:true={isLoading}>
+                <div class="slds-is-relative slds-align_absolute-center" style="height:5rem">
+                    <lightning-spinner alternative-text="Chargement..." size="medium"></lightning-spinner>
+                </div>
+            </template>
+ 
+            <!-- Affiche les boutons de génération si aucun résumé n'est en cours d'édition -->
+            <template if:false={summary}>
+                <div class="slds-align_absolute-center">
+                    <!-- Boutons de langue -->
+                    <lightning-button label="Résumé" variant="brand" onclick={handleGenerateFrenchClick} disabled={isLoading} class="slds-m-right_small"></lightning-button>
+                    <lightning-button label="Summary" variant="brand" onclick={handleGenerateEnglishClick} disabled={isLoading} class="slds-m-right_small"></lightning-button>
+                    <lightning-button label="まとめ" variant="brand" onclick={handleGenerateJapaneseClick} disabled={isLoading}></lightning-button>
+                </div>
+ 
+                <!-- Section pour afficher le dernier résumé enregistré -->
+                <div class="slds-box slds-m-top_medium slds-theme_shade">
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">Dernier Résumé Enregistré</h3>
+                    <lightning-formatted-rich-text value={previousSummary}></lightning-formatted-rich-text>
+                    <p class="slds-text-body_small slds-m-top_small slds-text-align_right">
+                        Dernière modification : <lightning-formatted-date-time value={lastModifiedDate} year="numeric" month="long" day="2-digit" hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                    </p>
+                </div>
+            </template>
+ 
+            <!-- Affiche l'éditeur de texte riche une fois le résumé généré -->
+            <template if:true={summary}>
+                <lightning-input-rich-text
+                    label="Résumé de l'appel"
+                    value={summary}
+                    onchange={handleTextChange}
+                    label-visible="true">
+                </lightning-input-rich-text>
+ 
+                <div class="slds-m-top_medium slds-align_absolute-center">
+                    <lightning-button
+                        label="Save"
+                        variant="brand"
+                        onclick={handleSaveClick}
+                        disabled={isLoading}>
+                    </lightning-button>
+                </div>
+            </template>
+ 
+            <!-- Affiche les messages d'erreur -->
+            <template if:true={error}>
+                <div class="slds-text-color_error slds-m-top_small">
+                    {error}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+ </template>

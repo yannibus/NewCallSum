@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>VoiceCallPromptController</members>
+        <members>VoiceCallPromptControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>voiceCallSummarizer</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>NewSum_Grounding_Flow_With_Transcript</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>NewSumFlex</members>
+        <name>GenAiPromptTemplate</name>
+    </types>
+    <types>
+        <members>VoiceCall.NewSum__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>64.0</version>
+</Package>

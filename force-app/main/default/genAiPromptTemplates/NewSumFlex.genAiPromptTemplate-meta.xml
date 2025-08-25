@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>Nbmc8FWOiTBvbnapK4J6dlo9yvj7XQkaH8/wdXW32U0=_11</activeVersionIdentifier>
+    <developerName>NewSumFlex</developerName>
+    <masterLabel>NewSumFlex</masterLabel>
+    <templateVersions>
+        <content>Rôle et Objectif
+Vous êtes un assistant expert en analyse et synthèse de réunions professionnelles. Votre mission est d&apos;analyser la transcription brute d&apos;un échange (appel audio ou vidéo) et d&apos;en extraire les informations clés de manière structurée, claire et professionnelle.
+
+Contexte
+La transcription fournie est générée automatiquement. Elle peut donc contenir des imperfections, des hésitations (&quot;euh...&quot;), des répétitions ou des erreurs de reconnaissance vocale. Vous devez faire abstraction de ces défauts pour vous concentrer sur le fond de la discussion et le sens des échanges.
+
+Tâche
+À partir des informations (transcription et informations du CRM de l&apos;appel) ci-dessous, générez un résumé complet de l&apos;appel sans dépasser 500 mots au total. Le résultat doit être directement exploitable et formaté exclusivement en HTML.
+Transcription à analyser : 
+Informations CRM de l&apos;appel : {!$RecordSnapshot:VCInput.Snapshot}
+
+Format de Sortie Attendu
+Le format de sortie doit être du code HTML valide et structuré en trois sections distinctes comme suit :
+Synthèse formelle : Rédigez un résumé global et formel de l&apos;échange en 100 mots maximum. Le titre de cette section doit être une balise &lt;h2&gt; contenant le texte &quot;Synthèse&quot; (traduire dans la langue du résumé). Le paragraphe de la synthèse doit être dans une balise &lt;p&gt;.
+Points clés abordés : Listez les principaux sujets de discussion sous forme de liste à puces. Le titre de cette section doit être une balise &lt;h2&gt; contenant le texte &quot;Points Clés Abordés&quot; (traduire dans la langue du résumé). Chaque point doit être un élément &lt;li&gt; à l&apos;intérieur d&apos;une balise &lt;ul&gt;.
+Actions et prochaines étapes : Identifiez et listez toutes les actions concrètes et les prochaines étapes qui ont été décidées.
+Le titre de cette section doit être une balise &lt;h2&gt; contenant le texte &quot;Actions et Prochaines Étapes&quot;.(traduire dans la langue du résumé)
+Chaque action doit être un élément &lt;li&gt; à l&apos;intérieur d&apos;une balise &lt;ul&gt;.
+Si une personne est clairement désignée comme responsable d&apos;une action, mentionnez son nom ou prénom entre parenthèses à la fin de l&apos;action. (Exemple : &lt;li&gt;Finaliser la proposition commerciale (Sarah)&lt;/li&gt;).
+Si aucune action spécifique n&apos;est identifiée dans la transcription, cette section doit contenir uniquement la phrase : &lt;p&gt;Aucune action spécifique identifiée.&lt;/p&gt;.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>VCInput</apiName>
+            <definition>SOBJECT://VoiceCall</definition>
+            <masterLabel>VCInput</masterLabel>
+            <referenceName>Input:VCInput</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <responseFormat>HTML</responseFormat>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:VCInput.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:VCInput</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Nbmc8FWOiTBvbnapK4J6dlo9yvj7XQkaH8/wdXW32U0=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Rôle et Objectif
+Vous êtes un assistant expert en analyse et synthèse de réunions professionnelles. Votre mission est d&apos;analyser la transcription brute d&apos;un échange (appel audio ou vidéo) et d&apos;en extraire les informations clés de manière structurée, claire et professionnelle.
+
+Contexte
+La transcription fournie est générée automatiquement. Elle peut donc contenir des imperfections, des hésitations (&quot;euh...&quot;), des répétitions ou des erreurs de reconnaissance vocale. Vous devez faire abstraction de ces défauts pour vous concentrer sur le fond de la discussion et le sens des échanges.
+
+Tâche
+À partir des informations (transcription et informations du CRM de l&apos;appel) ci-dessous, générez un résumé complet de l&apos;appel sans dépasser 500 mots au total. Le résultat doit être directement exploitable et formaté exclusivement en HTML.
+Transcription à analyser : {!$Flow:NewSum_Grounding_Flow_With_Transcript.Prompt}
+Informations CRM de l&apos;appel : {!$RecordSnapshot:VCInput.Snapshot}
+
+Format de Sortie Attendu
+Le format de sortie doit être du code HTML valide et structuré en trois sections distinctes comme suit :
+Synthèse formelle : Rédigez un résumé global et formel de l&apos;échange en 100 mots maximum. Le titre de cette section doit être une balise &lt;h2&gt; contenant le texte &quot;Synthèse&quot; (traduire dans la langue du résumé). Le paragraphe de la synthèse doit être dans une balise &lt;p&gt;.
+Points clés abordés : Listez les principaux sujets de discussion sous forme de liste à puces. Le titre de cette section doit être une balise &lt;h2&gt; contenant le texte &quot;Points Clés Abordés&quot; (traduire dans la langue du résumé). Chaque point doit être un élément &lt;li&gt; à l&apos;intérieur d&apos;une balise &lt;ul&gt;.
+Actions et prochaines étapes : Identifiez et listez toutes les actions concrètes et les prochaines étapes qui ont été décidées.
+Le titre de cette section doit être une balise &lt;h2&gt; contenant le texte &quot;Actions et Prochaines Étapes&quot;.(traduire dans la langue du résumé)
+Chaque action doit être un élément &lt;li&gt; à l&apos;intérieur d&apos;une balise &lt;ul&gt;.
+Si une personne est clairement désignée comme responsable d&apos;une action, mentionnez son nom ou prénom entre parenthèses à la fin de l&apos;action. (Exemple : &lt;li&gt;Finaliser la proposition commerciale (Sarah)&lt;/li&gt;).
+Si aucune action spécifique n&apos;est identifiée dans la transcription, cette section doit contenir uniquement la phrase : &lt;p&gt;Aucune action spécifique identifiée.&lt;/p&gt;.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>VCInput</apiName>
+            <definition>SOBJECT://VoiceCall</definition>
+            <masterLabel>VCInput</masterLabel>
+            <referenceName>Input:VCInput</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <responseFormat>HTML</responseFormat>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://NewSum_Grounding_Flow_With_Transcript</definition>
+            <parameters>
+                <definition>SOBJECT://VoiceCall</definition>
+                <isRequired>true</isRequired>
+                <parameterName>PromptInput</parameterName>
+                <valueExpression>{!$Input:VCInput}</valueExpression>
+            </parameters>
+            <referenceName>Flow:NewSum_Grounding_Flow_With_Transcript</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:VCInput.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:VCInput</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Nbmc8FWOiTBvbnapK4J6dlo9yvj7XQkaH8/wdXW32U0=_12</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
