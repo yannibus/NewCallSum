@@ -66,7 +66,7 @@ La transcription fournie est générée automatiquement. Elle peut donc contenir
 
 Tâche
 À partir des informations (transcription et informations du CRM de l&apos;appel) ci-dessous, générez un résumé complet de l&apos;appel sans dépasser 500 mots au total. Le résultat doit être directement exploitable et formaté exclusivement en HTML.
-Transcription à analyser : {!$Flow:NewSum_Grounding_Flow_With_Transcript.Prompt}
+Transcription à analyser : 
 Informations CRM de l&apos;appel : {!$RecordSnapshot:VCInput.Snapshot}
 
 Format de Sortie Attendu
